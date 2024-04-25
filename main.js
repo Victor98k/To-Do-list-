@@ -6,6 +6,9 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 
+
+
+
 function addTask() {
   if (inputBox.value === '') {
     alert("Please add your task!");
@@ -14,7 +17,7 @@ function addTask() {
       let li = document.createElement("li");
       li.innerHTML = inputBox.value;
       listContainer.appendChild(li);
-
+      
 
       let span = document.createElement("span");
       span.innerHTML = "\u00d7";
@@ -26,6 +29,8 @@ function addTask() {
   inputBox.value = "";
 }
 
+
+
 listContainer.addEventListener("click", function (e) {
   if (e.target.tagName === "LI") {
     e.target.classList.toggle("checked");
@@ -33,3 +38,14 @@ listContainer.addEventListener("click", function (e) {
     e.target.parentElement.remove();
   }
 }, false);
+
+
+
+
+
+let input = document.getElementById('input-box');
+input.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter'){
+    addTask()
+  }
+})
